@@ -29,10 +29,10 @@ import Unsafe.Coerce
 main :: IO ()
 main = do 
     args <- getArgs
-    let bufferSize = 1024
+    let bufferSize = 512
     let (fn1, fn2) = case args of
                  [f1, f2] -> (f1, f2)
-                 [] -> error "bad arguments"
+                 _        -> ("kick.wav", "snare.wav")
     
     (info1, Just snd1) <- Snd.readFile fn1 
     (info2, Just snd2) <- Snd.readFile fn2
